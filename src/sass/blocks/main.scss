@@ -1,0 +1,351 @@
+.main {
+    background-color: #000000;
+    color: #ffffff;
+
+    &__wrap {
+        position: relative;
+        padding: 166px 10px 100px 10px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("../../img/mars-wallpaper-mobile.jpg");
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: contain;
+            mix-blend-mode: luminosity;
+            z-index: 0;
+        }
+    }
+
+    &__title {
+        position: relative;
+        font-size: 50px;
+        font-weight: 800;
+        letter-spacing: 3.88px;
+        margin: 0;
+        z-index: 1;
+    }
+
+    @media (min-width: $tablet-width) {
+        &__wrap {
+            padding: 255px 40px 100px 40px;
+
+            &::before {
+                background-image: url("../../img/mars-wallpaper-tablet.jpg");
+            }
+        }
+
+        &__title {
+            font-size: 130px;
+            letter-spacing: 10.08px;
+        }
+    }
+  
+    @media (min-width: $desktop-width) {
+        &__wrap {
+            width: 100%;
+            max-width: 1190px;
+            margin: 0 auto;
+            padding-top: 220px;
+
+            &::before {
+                background-image: url("../../img/mars-wallpaper@3x.jpg");
+            }
+        }
+
+        &__title {
+            margin-left: 285px;
+        }
+    }
+}
+
+.specifications {
+    position: relative;
+
+    &__list {
+        @include list-reset;
+        padding: 58px 30px 0 30px;
+    }
+
+    &__item {
+        margin-bottom: 40px;
+    }
+
+    &__item:nth-child(2) &__value {
+        margin-left: -20px;
+    }
+
+    &__name {
+        display: block;
+        opacity: 0.5;
+        font-family: "Georgia";
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: italic;
+        line-height: normal;
+        letter-spacing: 1.09px;
+        margin-bottom: 10px;
+    }
+
+    &__value {
+        font-size: 40px;
+        font-weight: 200;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 3.1px;
+        color: #e01050;
+
+        span:first-child {
+            color: #ffffff;
+        }
+    }
+
+    @media (min-width: $tablet-width) {
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            padding: 58px 0 0 0;
+        }
+
+        &__item {
+           display: flex;
+           flex-direction: column;
+           justify-content: space-between;
+        }
+
+        &__item:nth-child(2) &__value {
+            margin-left: -26px;
+        }
+
+        &__name {
+            width: 160px;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &__value {
+            font-size: 60px;
+            letter-spacing: 4.65px;
+        }
+    }
+  
+    @media (min-width: $desktop-width) {
+        &__list {
+            padding-left: 285px;
+            padding-top: 46px;
+        }
+    }
+}
+
+.rover {
+    padding: 40px 0 15px 0;
+
+    &__title {
+        font-size: 40px;
+        letter-spacing: 3.1px;
+        margin: 0;
+        margin-bottom: 35px;
+    }
+
+    &__description {
+        opacity: 0.6;
+        font-size: 16px;
+        line-height: 1.63;
+        letter-spacing: 1.24px;
+        padding-left: 55px;
+        padding-right: 5px;
+    }
+    
+    @media (min-width: $tablet-width) {
+        margin-top: 60px;
+
+        &__title {
+            font-size: 50px;
+            letter-spacing: 3.87px;
+        }
+
+        &__description {
+            padding-left: 188px;
+            padding-right: 150px;
+            margin-top: -65px;
+        }
+    }
+  
+    @media (min-width: $desktop-width) {
+        margin-top: 30px;
+            padding-left: 285px;
+            padding-right: 145px;
+    }
+}
+
+.photos {
+    overflow-x: hidden;
+    padding: 30px 0;
+
+    &__list {
+        @include list-reset;
+        display: flex;
+        overflow-x: scroll;
+        position: relative;
+    }
+
+    &__item {
+        width: 60%;
+        flex-shrink: 0;
+        margin-right: 10px;
+        position: relative;
+    }
+
+    &__more {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        background: inherit;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #ffffff;
+        font-size: 20px;
+    }
+
+    @media (min-width: $tablet-width) {
+        padding: 40px 0;
+
+        &__item {
+            width: 43%;
+        }
+    }
+  
+    @media (min-width: $desktop-width) {
+        padding-top: 50px;
+        padding-bottom: 20px;
+
+        &__list {
+            overflow-x: visible;
+            flex-wrap: wrap;
+        }
+
+        &__item {
+            width: calc(33.33% - 20px);
+            margin-right: 30px;
+            margin-bottom: 30px;
+        }
+
+        &__item:nth-child(3n) {
+            margin-right: 0;
+        }
+    }
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: inherit;
+        border: none;
+    }
+
+    &__arrow-wrap {
+        position: absolute;
+        bottom: 30px;
+        left: calc(50% - 36px);
+
+        button {
+            background: inherit;
+            border: none;
+        }
+    }
+
+    &__arrow-right {
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+  
+    @media (min-width: $desktop-width) {
+        &__close {
+            right: 24%;
+        }
+    }
+}
+
+.loader {
+    position: relative;
+    background-color: #000000;
+    min-height: 200px;
+      
+    svg {
+        position: absolute;
+        top: calc(50% - 32px);
+        left: calc(50% - 32px);
+    }
+}
+
+.error {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+.study {
+    padding: 15px 0 15px 0;
+
+    &__title {
+        font-family: Montserrat;
+        font-size: 21px;
+        letter-spacing: 1.63px;
+        margin: 0;
+        margin-bottom: 35px;
+    }
+
+    &__description {
+        opacity: 0.6;
+        font-size: 16px;
+        line-height: 1.63;
+        letter-spacing: 1.24px;
+        padding-left: 55px;
+        padding-right: 5px;
+    }
+
+    @media (min-width: $tablet-width) {
+        &__title {
+            width: 350px;
+            font-size: 25px;
+            letter-spacing: 1.94px;
+        }
+
+        &__description {
+            padding-left: 188px;
+            padding-right: 150px;
+        }
+    }
+  
+    @media (min-width: $desktop-width) {
+        padding-left: 285px;
+        padding-right: 145px;
+    }
+}
